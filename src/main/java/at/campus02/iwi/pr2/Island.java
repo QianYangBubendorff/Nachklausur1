@@ -28,50 +28,52 @@ public class Island {
     }
 
     public HashMap<String, Integer> groupFacilities() {
-        HashMap<String, Integer> erg = new HashMap<String, Integer>();
-        int vklein = 0;
-        int vmittel = 0;
-        int vgross = 0;
-        for(Facility g : facilities)
-        {
-            double profit = g.calculateProfit();
-            if(profit < 1000)
-            {
-                erg.put("Low",  ++vklein);
-            }
-            else
-            {
-                if(profit < 10000)
-                {
-                    erg.put("Average", ++vmittel);
-                }
-                else
-                {
-                    erg.put("High", ++vgross);
-                }
-            }
-        }
-        return erg;
-    }
-//        HashMap<String, Integer> ergMap = new HashMap<>();
-//        for (Facility f : facilities) {
-//            if (f.calculateProfit() < 1000) {
-//                if (!facilities.contains("Low")) {
-//                    ergMap.put("Low", 1);
-//                } else ergMap.put("Low", 1 + ergMap.get("Low"));
-//            } else {
-//                if (f.calculateProfit() < 10000) {
-//                    if (!facilities.contains("Average")) {
-//                        ergMap.put("Average", 1);
-//                    } else ergMap.put("Average", 1 + ergMap.get("Average"));
-//                } else {
-//                    if (!facilities.contains("High")) {
-//                        ergMap.put("High", 1);
-//                    } else ergMap.put("High", 1 + ergMap.get("High"));
+//        HashMap<String, Integer> erg = new HashMap<String, Integer>();
+//        int vklein = 0;
+//        int vmittel = 0;
+//        int vgross = 0;
+//        for(Facility g : facilities)
+//        {
+//            double profit = g.calculateProfit();
+//            if(profit < 1000)
+//            {
+//                erg.put("Low",  ++vklein);
+//            }
+//            else
+//            {
+//                if(profit < 10000)
+//                {
+//                    erg.put("Average", ++vmittel);
+//                }
+//                else
+//                {
+//                    erg.put("High", ++vgross);
 //                }
 //            }
-//
-//        }return ergMap;
+//        }
+//        return erg;
+//    }
+        HashMap<String, Integer> ergMap = new HashMap<>();
+        for (Facility f : facilities) {
+            if (f.calculateProfit() < 1000) {
+                if (!ergMap.containsKey("Low")) {
+                    ergMap.put("Low", 1);
+                } else ergMap.put("Low", 1 + ergMap.get("Low"));
+            } else {
+                if (f.calculateProfit() < 10000) {
+                    if (!ergMap.containsKey("Average")) {
+                        ergMap.put("Average", 1);
+                    } else ergMap.put("Average", 1 + ergMap.get("Average"));
+                } else {
+                    if (!ergMap.containsKey("High")) {
+                        ergMap.put("High", 1);
+                    } else ergMap.put("High", 1 + ergMap.get("High"));
+                }
+            }
+
+        }
+        return ergMap;
+    }
 
 
     public ArrayList<Facility> risingWaterSimulation(double waterLevel){
