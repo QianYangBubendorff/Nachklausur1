@@ -1,5 +1,5 @@
 package at.campus02.iwi.pr2;
 
-enum Rawmaterial{
+enum RawMaterial {
     LITHIUM, NEODYMIUM, TERBIUM
 }

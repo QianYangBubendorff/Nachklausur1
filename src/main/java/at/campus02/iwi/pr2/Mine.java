@@ -2,20 +2,20 @@ package at.campus02.iwi.pr2;
 
 public class Mine extends Facility {
     private double miningDepth;
-    private Rawmaterial rawmaterial;
+    private RawMaterial rawMaterial;
 
-    public Mine(double area, double heightAboveSealevel, double miningDepth, Rawmaterial rawmaterial) {
+    public Mine(double area, double heightAboveSealevel, double miningDepth, RawMaterial rawmaterial) {
         super(area, heightAboveSealevel);
         this.miningDepth = miningDepth;
-        this.rawmaterial = rawmaterial;
+        this.rawMaterial = rawmaterial;
     }
 
     public double getMiningDepth() {
         return miningDepth;
     }
 
-    public Rawmaterial getRawmaterial() {
-        return rawmaterial;
+    public RawMaterial getRawMaterial() {
+        return rawMaterial;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class Mine extends Facility {
         if(miningDepth>=100){
             return 3;
         }
-        else if(rawmaterial==Rawmaterial.TERBIUM){
+        else if(rawMaterial== RawMaterial.TERBIUM){
             return 2;
         }else return 1;
     }
@@ -35,7 +35,7 @@ public class Mine extends Facility {
 
     @Override
     public double calculateProfit() {
-       if(rawmaterial==Rawmaterial.LITHIUM || rawmaterial==Rawmaterial.NEODYMIUM){
+       if(rawMaterial== RawMaterial.LITHIUM || rawMaterial== RawMaterial.NEODYMIUM){
            return 200*area;
        }else return 300*area;
 

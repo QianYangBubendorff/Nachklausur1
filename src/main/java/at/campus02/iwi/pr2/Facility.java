@@ -17,7 +17,7 @@ public abstract class Facility implements PalmRating{
         this.area = area;
     }
 
-    public double getHeightAboveSealevel() {
+    public double getHeightAboveSeaLevel() {
         return heightAboveSealevel;
     }
 
